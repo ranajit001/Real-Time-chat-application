@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cosmic Chat</title>
+        <!-- Add these lines before loading the font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <!-- Rest of your head content -->
+        <link rel="stylesheet" href="chat.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+        <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    </head>
+<body>
+    <!-- Back Button -->
+    <button id="backButton" class="back-button" >
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="chat-container">
+        <!-- Users Sidebar -->
+        <aside class="users-sidebar">
+            <div class="current-user">
+                <img id="currentUserProfilePic" src="" alt="Profile">
+                <span id="currentUserName"></span>
+            </div>
+
+            <!-- Add Search Bar -->
+            <div class="search-container">
+                <input type="text" id="userSearch" placeholder="Search usernames...">
+                <!-- <button id="searchButton"><i class="fas fa-search"></i></button> -->
+            </div>
+
+            <div id="usersList" class="users-list">
+                <!-- Users will be populated here -->
+            </div>
+        </aside>
+        
+        <!-- Chat Section -->
+        <main class="chat-section">
+            <header id="chatHeader" class="chat-header">
+                <!-- Selected User Info -->
+            </header>
+
+            <div id="chatMessages" class="chat-messages">
+                <!-- Messages will be displayed here -->
+            </div>
+
+            <footer class="chat-input">
+                <div class="input-wrapper">
+                    <label for="fileInput" class="attach-button">
+                        <i class="fa-solid fa-paperclip"></i>
+                    </label>
+                    <input type="file" id="fileInput" multiple accept="image/*,video/*,.pdf,.doc,.docx" style="display: none;">
+                    <div id="filePreview" class="file-preview"></div>
+                    <input type="text" id="messageInput" placeholder="Type your message...">
+                    <button id="sendButton">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </footer>
+        </main>
+    </div>    
+    <script src="chat.js"></script>
+</body>
+</html>

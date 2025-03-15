@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echosphere - Log In</title>
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Echosphere</div>
+        </div>
+    </header>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Log in to connect with your network</p>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="usernameOrEmail" 
+                           placeholder="Email or Username" 
+                           minlength="3" 
+                           title="Enter your email or username (min 3 characters)"
+                           required />
+                    <small class="hint">Enter your registered email or username</small>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" 
+                           placeholder="Password" 
+                           minlength="5"
+                           title="Minimum 5 characters required"
+                           required />
+                    <small class="hint">Minimum 5 characters</small>
+                </div>
+                <button type="submit">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Log In
+                </button>
+            </form>
+            <p class="signup-link">
+                New to Echosphere? <a href="../signup/signup.html">Sign up</a>
+            </p>
+            <p class="forgot-password-link">
+                <a href="../forgot-password/forgot-password.html">
+                    <i class="fas fa-key"></i> Forgot Password?
+                </a>
+            </p>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+    <script src="./login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto; /* Allow scrollbars when content overflows */
+  padding: 20px; /* Add padding to the body */
+}
+
+/* Header */
+header {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Signup Container */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.signup-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 30px; /* Reduced padding */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h2 {
+  font-size: 28px; /* Reduced font size */
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #eee;
+  text-align: center;
+  margin-bottom: 20px; /* Reduced margin */
+  font-size: 14px; /* Reduced font size */
+}
+
+/* Form Styling */
+.input-group {
+  position: relative;
+  margin-bottom: 20px; /* Reduced margin */
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ddd;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 35px; /* Reduced padding */
+  border: none;
+  border-radius: 8px;
+  font-size: 14px; /* Reduced font size */
+  color: #fff;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: #ddd;
+  font-size: 14px; /* Reduced font size */
+}
+
+.input-group input:focus {
+  border-bottom: 2px solid #fff;
+}
+
+.hint {
+  display: none;
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+  margin-left: 25px;
+}
+
+.input-group input:focus + .hint {
+  display: block;
+}
+
+/* Show validation message when input is invalid */
+.input-group input:invalid:focus + .hint {
+  color: #a51717;
+}
+
+button {
+  width: 100%;
+  padding: 12px 15px; /* Reduced padding */
+  background-color: #fff;
+  color: #764ba2;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px; /* Reduced font size */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 15px; /* Reduced margin */
+  color: #eee;
+  font-size: 14px; /* Reduced font size */
+}
+
+.login-link a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Message */
+.message {
+  margin-top: 15px; /* Reduced margin */
+  padding: 10px; /* Reduced padding */
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px; /* Reduced font size */
+}
+
+.message.success {
+  background-color: rgba(212, 237, 218, 0.8);
+  color: #155724;
+}
+
+.message.error {
+  background-color: rgba(248, 215, 218, 0.8);
+  color: #721c24;
+}
+
+.forgot-password-link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.forgot-password-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link a:hover {
+    color: var(--accent-color-hover);
+}
+
+.forgot-password-link i {
+    margin-right: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .signup-container {
+      margin-top: 60px;
+  }
+
+  .signup-box {
+      padding: 20px; /* Further reduced padding */
+  }
+
+  .input-group {
+      margin-bottom: 15px; /* Further reduced margin */
+  }
+
+  .input-group input {
+      padding: 8px 30px; /* Further reduced padding */
+      font-size: 12px; /* Further reduced font size */
+  }
+
+  button {
+      font-size: 14px; /* Further reduced font size */
+      padding: 10px 12px; /* Further reduced padding */
+  }
+
+  h2 {
+      font-size: 24px; /* Further reduced font size */
+  }
+
+  .subtitle {
+      font-size: 12px; /* Further reduced font size */
+  }
+
+  .login-link {
+      font-size: 12px; /* Further reduced font size */
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .signup-container {
+      padding: 10px; /* Further reduced padding */
+  }
+
+  .signup-box {
+      border-radius: 0; /* Remove border-radius for full-width */
+      box-shadow: none; /* Remove shadow for cleaner look */
+  }
+
+  .input-group input {
+      padding: 6px 25px; /* Further reduced padding */
+  }
+
+  button {
+      font-size: 12px; /* Further reduced font size */
+  }
+}

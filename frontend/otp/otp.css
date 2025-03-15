@@ -1,0 +1,123 @@
+:root {
+    --primary-gradient: linear-gradient(45deg, #7f50f0, #4361ee);
+    --secondary-gradient: linear-gradient(135deg, #f72585, #7209b7);
+    --bright-gradient: linear-gradient(to right, #00dbde, #fc00ff);
+    --background-gradient: linear-gradient(to bottom right, #5f0a87, #4361ee);
+    --text-light: #ffffff;
+    --text-dark: #121212;
+    --accent-color: #00f5d4;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--background-gradient);
+    font-family: 'Poppins', sans-serif;
+}
+
+.otp-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.otp-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.otp-input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.otp-digit {
+    width: 40px;
+    height: 45px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    font-size: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.otp-digit:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: var(--bright-gradient);
+    border: none;
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.resend-text {
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.resend-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+}
+
+.message.error {
+    background: rgba(255, 68, 68, 0.2);
+    color: #990000;
+}
+
+.message.success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+}
+
+.user-email {
+    color: var(--accent-color);
+    font-size: 1.1em;
+    display: block;
+    margin-top: 5px;
+    word-break: break-all;
+}

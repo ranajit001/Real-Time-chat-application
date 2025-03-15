@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echosphere - Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+    <script defer src="signup.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">Echosphere</div>
+        </div>
+    </header>
+
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join our community!</p>
+            <form id="signup-form">
+
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="fullName" placeholder="Full Name" 
+                           minlength="4" maxlength="50"
+                           title="4-50 characters" required>
+                    <small class="hint">4-50 characters</small>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-at"></i>
+                    <input type="text" id="username" placeholder="Username" 
+                           minlength="3" maxlength="30"
+                           pattern="[a-zA-Z0-9_]+"
+                           title="3-30 characters, letters, numbers & underscore only" required>
+                    <small class="hint">3-30 characters, letters, numbers & underscore only</small>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" 
+                           minlength="5"
+                           title="At least 5 characters" required>
+                    <small class="hint">Minimum 5 characters</small>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                </div>
+
+                <button type="submit">
+                    <i class="fas fa-user-plus"></i>
+                    Sign Up
+                </button>
+            </form>
+            <p class="login-link">
+                Already have an account? <a href="../login/login.html">Log In</a>
+            </p>
+            <p class="forgot-password-link">
+                <a href="../forgot-password/forgot-password.html">
+                    <i class="fas fa-key"></i> Forgot Password?
+                </a>
+            </p>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+</body>
+
+</html>
