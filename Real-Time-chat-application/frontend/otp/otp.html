@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="otp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="otp-container">
+        <div class="otp-box">
+            <h2>OTP Verification</h2>
+            <p class="subtitle">
+                Enter the OTP sent to<br>
+                <strong id="userEmail" class="user-email">your email</strong>
+            </p>
+            
+            <form id="otp-form">
+                <div class="otp-input-group">
+                    <input type="text" maxlength="1" class="otp-digit" required>
+                    <input type="text" maxlength="1" class="otp-digit" required>
+                    <input type="text" maxlength="1" class="otp-digit" required>
+                    <input type="text" maxlength="1" class="otp-digit" required>
+                    <input type="text" maxlength="1" class="otp-digit" required>
+                    <input type="text" maxlength="1" class="otp-digit" required>
+                </div>
+                <button type="submit">
+                    <i class="fas fa-check-circle"></i>
+                    Verify OTP
+                </button>
+            </form>
+            
+            <p class="resend-text">
+                Didn't receive the code? 
+                <a href="#" id="resendOTP">Resend OTP</a>
+                <span id="timer"></span>
+            </p>
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+    <script src="otp.js"></script>
+</body>
+</html>
