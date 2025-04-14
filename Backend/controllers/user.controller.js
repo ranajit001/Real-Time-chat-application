@@ -177,7 +177,7 @@ const sendResetEmail =   async (req, res) => {
         // Generate reset token (valid for 20 minutes)
         const resetToken = jwt.sign({id:user._id, email: user.email, role:user.role },process.env.JWT_SECRET, {expiresIn: "10m"});
 
-        const resetLink = `http://localhost:${process.env.PORT}/users/reset_password/${resetToken}`;
+        const resetLink = `https://real-time-chat-application-mq1s.onrender.com/users/reset_password/${resetToken}`;
         // Configure mail transport
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
