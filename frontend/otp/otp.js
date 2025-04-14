@@ -1,3 +1,4 @@
+import { base_url } from "../baseurl.js";
 document.addEventListener('DOMContentLoaded', () => {
     // Get email from localStorage
     const userEmail = JSON.parse(localStorage.getItem('email'));
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const otp = Array.from(inputs).map(input => input.value).join('');
         // console.log(otp)
         try {
-            const response = await fetch('http://localhost:3300/verify/verify-otp', {
+            const response = await fetch(`${ base_url }/verify/verify-otp`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -100,18 +101,20 @@ document.addEventListener('DOMContentLoaded', () => {
     resendButton.addEventListener('click', async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3300/verify/resend-otp', {
+            const email = JSON.parse(localStorage.getItem("email"));
+            const response = await fetch(`${ base_url }/verify/resend-otp`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ email: localStorage.getItem('email') })
+                body: JSON.stringify({ email })
             });
 
             const data = await response.json();
             
             if (response.ok) {
-                showMessage('OTP resent successfully!', 'success');
+                showMessage('OTP resent successfully!', 'success'); console.log(response);
+                
                 startTimer();
             } else {
                 showMessage(data.message || 'Error resending OTP', 'error');

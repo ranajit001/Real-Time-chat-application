@@ -1,3 +1,5 @@
+import { base_url } from "../baseurl.js";
+
 document.getElementById("signup-form").addEventListener("submit", async function (e) {
     e.preventDefault();
 const Useremail = document.getElementById("email").value.trim();
@@ -18,7 +20,7 @@ const Useremail = document.getElementById("email").value.trim();
     }
 
     try {
-        const response = await fetch('http://localhost:3300/users/register', {
+        const response = await fetch(`${base_url}/users/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

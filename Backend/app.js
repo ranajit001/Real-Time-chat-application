@@ -16,10 +16,8 @@ const server = http.createServer(app);
 setupSocket(server);
 
 
+app.use(cors({ origin: '*' })); 
 app.use(express.json());
-app.use(cors())
-
-
 
 app.use('/users',UserRouter);
 app.use('/verify',OTP_router)

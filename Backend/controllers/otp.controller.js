@@ -1,6 +1,6 @@
 import { OTP_Model } from "../models/otp.model.js";
 import { UserModel } from "../models/user.model.js";
-import { generate_Credentials } from "./user.controller.js";
+import { generate_Credentials } from "./user.controller.js"; //from controller
 import nodemailer from 'nodemailer'
 const generateToken = (user) => jwt.sign({_id:user._id,username:user.username, email: user.email, role:user.role }, process.env.JWT_SECRET);
 
@@ -29,8 +29,18 @@ const verifyOTP = async(req,res)=>{
         }
 };
 
-
-
+//re-send
+const resendOpt = async(req,res)=>{
+try {
+    console.log(req.body);
+    
+    if(!req.body.email) res.status(404).json({message:'email not found'})
+    const response = await createOtp(req.body.email)
+res.status(200).json({message:response})
+} catch (e) {
+    res.status(500).json({message:'error from resen dotp'})
+}
+}
 
 const createOtp = async (email) => {
     try {
@@ -39,7 +49,7 @@ const createOtp = async (email) => {
 
         let existed = await OTP_Model.findOneAndUpdate(
             { email },
-            { otp, createdAt: new Date() }, //  Reset TTL auto document delete timer
+            { otp, createdAt: new Date() }, //  Reset TTL auto document delete timer  expiry time appliedc inside otp model
             { new: true, upsert: true } //  if this user not avail then cretes a new user to create if not found.
         );
 
@@ -158,9 +168,6 @@ const send_email_with_otp = async (email, otp) => {
 };
 
 
-// const resend_otp = async(req,res)=>{
-
-// }
 
 
 
@@ -168,6 +175,7 @@ const send_email_with_otp = async (email, otp) => {
 
 export{
     createOtp, // imported to user controller signup function 
-    verifyOTP
+    verifyOTP,
+    resendOpt
 }
 

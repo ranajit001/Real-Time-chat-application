@@ -20,7 +20,7 @@ const search_user = async (text) => {
 };
 
 
-search_user('li')
+
 
 
 

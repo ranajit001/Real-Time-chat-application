@@ -1,7 +1,7 @@
 let socket; 
 let selectedUser = null; 
 const currentUser = JSON.parse(localStorage.getItem("user")); 
-
+import { base_url } from "../baseurl.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     if (!currentUser) {
@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   
-     socket = io("http://localhost:3300", {
+     socket = io(`${ base_url }` , {
         auth: {
             token: currentUser.token
         }
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     socket.on("userOffline", ({ username }) => updateUserStatus(username, false)); // Update user status to offline
     socket.on("user_search_results", (users) => { display_Users_in_left_sidebar(users)});
 
-    document.getElementById("sendButton").addEventListener("click", () => sending_message())
+    document.getElementById("sendButton").addEventListener("click", async (e) => await sending_message(e))
 
 
 // Single display_Users_in_left_sidebar function
@@ -153,20 +153,6 @@ function display_Chat_History(messages) {
 
 
 
-// Client Side: Sending a message when the send button is clicked
-function sending_message() {
-        const messageInput = document.getElementById("messageInput");
-        if(!messageInput.value) {return}
-        const messageData = {
-            sender_username:currentUser.username,
-            reciver_username: selectedUser.username,
-            text: messageInput.value,
-            image:messageInput.image ||''
-        };
-        // Emit a message to the server using a distinct event name
-        socket.emit("sendPrivateMessage", messageData);
-        messageInput.value = ""; // Clear the input field
-    };
 
     //Client Side: Listening for new messages from the server
     socket.on("newPrivateMessage", (data) => {
@@ -271,7 +257,8 @@ function getFileIcon(fileType) {
     return 'fa-file';
 }
 
-// Update your existing sending_message function to handle selected files
+
+
 function sending_message() {
     const messageInput = document.getElementById("messageInput");
     if (!messageInput.value && selectedFiles.size === 0) return;
@@ -283,7 +270,7 @@ function sending_message() {
 
     // First upload files if any
     if (selectedFiles.size > 0) {
-        fetch('http://localhost:3300/upload/upload-multiple', {
+        fetch(`${base_url}/upload/upload-multiple`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${currentUser.token}`
@@ -320,5 +307,4 @@ function sending_message() {
 }
 
 });
-
 

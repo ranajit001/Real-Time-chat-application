@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cosmic Chat</title>
+        <title>ChitChat</title>
         <!-- Add these lines before loading the font -->
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
         <!-- Rest of your head content -->
@@ -54,13 +54,13 @@
                     <input type="file" id="fileInput" multiple accept="image/*,video/*,.pdf,.doc,.docx" style="display: none;">
                     <div id="filePreview" class="file-preview"></div>
                     <input type="text" id="messageInput" placeholder="Type your message...">
-                    <button id="sendButton">
+                    <button id="sendButton" type="button">
                         <i class="fa-solid fa-arrow-right"></i>
                     </button>
                 </div>
             </footer>
         </main>
     </div>    
-    <script src="chat.js"></script>
+    <script type="module" src="chat.js"></script>
 </body>
 </html>

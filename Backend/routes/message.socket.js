@@ -97,7 +97,7 @@ io.on("connection", async(socket) => {
 // Server Side: Listening for sent messages from the client
 socket.on("sendPrivateMessage", async (messageData) => {
     try {
-      //console.log('raw fata =>',messageData)
+      console.log('raw data =>',messageData)
       // Save the message (simulate async DB operation)
       const savedMessage = await sendNewMessage(messageData);
       //console.log('processed data =>', savedMessage);

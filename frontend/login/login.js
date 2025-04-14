@@ -1,3 +1,5 @@
+import { base_url } from "../baseurl.js";
+
 document
   .getElementById("login-form")
   .addEventListener("submit", async function (e) {
@@ -12,7 +14,7 @@ document
 
     try {
       const response = await fetch(
-        "http://localhost:3300/users/login",
+        `${ base_url }/users/login`,
         {
           method: "POST",
           headers: {
