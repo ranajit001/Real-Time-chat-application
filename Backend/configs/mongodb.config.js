@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-
+import dotenv from 'dotenv';
+dotenv.config();
 let connection = null; // Store first connection
 
 async function connectDB() {
     if (!connection) {
-        connection = await mongoose.connect('mongodb://127.0.0.1:27017/hiiiiiiiii', {
+        connection = await mongoose.connect(process.env.MONGO_URI, {
         });
         console.log("✅ Connected to MongoDB");
     }
